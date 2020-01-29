@@ -104,8 +104,17 @@ public class Matrix2D
     public int maxValue()
     {
         //add your code here
+        int value= 0;
+        for (int row = 0; row < data.length; row++) {
+            for (int col = 0; col < data.length; col++) {
+                if(data[row][col]> value){
+                    value = data[row][col];
+                    
+                }
+            }
+        }    
         
-        return -1;
+        return value;
     }
     
     /**
@@ -126,6 +135,14 @@ public class Matrix2D
         }
 
         //add your code here
+          for (int row = 0; row < data.length; row++) {
+            for (int col = 0; col < data.length; col++) {
+                if(otr [row][col] != other [row][col]){
+                return false;     
+                    
+                }
+            }
+        } 
 
         return true;
     }
@@ -162,7 +179,14 @@ public class Matrix2D
     public void scale(int by)
     {
         //add your code here
-    }
+          for (int row = 0; row < data.length; row++) {
+            for (int col = 0; col < data.length; col++) {
+               this.data[row][col]= this.data[row][col] * by;
+                    
+                }
+            }
+        } 
+    
 
     /**
      * Return the matrix as a String that will print in a nice format.
