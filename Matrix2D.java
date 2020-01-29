@@ -108,8 +108,7 @@ public class Matrix2D
         for (int row = 0; row < data.length; row++) {
             for (int col = 0; col < data.length; col++) {
                 if(data[row][col]> value){
-                    value = data[row][col];
-                    
+                    value = data[row][col];           
                 }
             }
         }    
@@ -137,9 +136,8 @@ public class Matrix2D
         //add your code here
           for (int row = 0; row < data.length; row++) {
             for (int col = 0; col < data.length; col++) {
-                if(otr [row][col] != other [row][col]){
-                return false;     
-                    
+                if(otr.data [row][col] != data [row][col]){
+                return false;                         
                 }
             }
         } 
@@ -166,9 +164,14 @@ public class Matrix2D
             throw new Matrix2DSizeMismatchException(data.length, other.data.length);
         }
 
-        //add your code here
-        
-        return null;
+        //add your code here        
+        Matrix2D mtrx = new Matrix2D(data.length);
+           for (int row = 0; row < data.length; row++) {
+            for (int col = 0; col < data.length; col++) {
+                mtrx.data [row][col]= this.data[row][col]+ other.data [row][col];
+            }
+        } 
+        return mtrx;
     }
 
     /**
