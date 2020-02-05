@@ -4,7 +4,7 @@ import java.util.Random;
  *  A class representing a square matrix with some methods to manipulate
  *  such matrices.
  *  
- * @author Jim Teresco, modified by Prof. White and (your names here)
+ * @author Jim Teresco, modified by Prof. White and (aimen and ashley)
  * @version Fall 2019
  */
 public class Matrix2D 
@@ -158,7 +158,7 @@ public class Matrix2D
      *          matrix and this matrix for the same row and column
      *          indexes.
      */ 
-    public Matrix2D add(Matrix2D other) throws Matrix2DSizeMismatchException 
+    public Matrix2D add(Matrix2D other) throws Matrix2DSizeMismatchException , Matrix2DIndexOutOfBoundsException
     {    
         if (data.length != other.data.length) {
             throw new Matrix2DSizeMismatchException(data.length, other.data.length);
@@ -168,7 +168,7 @@ public class Matrix2D
         Matrix2D mtrx = new Matrix2D(data.length);
            for (int row = 0; row < data.length; row++) {
             for (int col = 0; col < data.length; col++) {
-                mtrx.data [row][col]= this.data[row][col]+ other.data [row][col];
+                mtrx.set(row, col, data[row][col] + other.get(row,col));
             }
         } 
         return mtrx;
